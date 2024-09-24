@@ -1,0 +1,260 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: leapspark-gateway
+  labels:
+    app: leapspark-gateway
+spec:
+  type: ClusterIP
+  selector:
+    app: leapspark-gateway
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+  externalIPs:
+    - 172.20.23.47
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: leapspark-web
+  labels:
+    app: leapspark-web
+spec:
+  type: ClusterIP
+  selector:
+    app: leapspark-web
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: leapspark-api
+  labels:
+    app: leapspark-api
+spec:
+  type: ClusterIP
+  selector:
+    app: leapspark-api
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: leapspark-logstash
+  labels:
+    app: leapspark-logstash
+spec:
+  type: ClusterIP
+  selector:
+    app: leapspark-logstash
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8080
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: leapspark
+  labels:
+    app: leapspark
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: leapspark
+  template:
+    metadata:
+      labels:
+        app: leapspark
+    spec:
+      containers:
+        - name: leapspark
+          image: leapspark
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: "K8s"
+            - name: ASPNETCORE_URLS
+              value: "http://+:80"
+          ports:
+             - containerPort: 80
+          imagePullPolicy: Never
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: leapspark-api
+  labels:
+    app: leapspark-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: leapspark-api
+  template:
+    metadata:
+      labels:
+        app: leapspark-api
+    spec:
+      containers:
+        - name: leapspark-api
+          image: leapspark-api
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: "K8s"
+            - name: ASPNETCORE_URLS
+              value: "http://+:80"
+          ports:
+             - containerPort: 80
+          imagePullPolicy: Never
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: leapspark-gateway
+  labels:
+    app: leapspark-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: leapspark-gateway
+  template:
+    metadata:
+      labels:
+        app: leapspark-gateway
+    spec:
+      containers:
+        - name: leapspark-gateway
+          image: leapspark-gateway
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: "K8s"
+            - name: ASPNETCORE_URLS
+              value: "http://+:80"
+          ports:
+             - containerPort: 80
+          imagePullPolicy: Never
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: leapspark-hub
+  labels:
+    app: leapspark-hub
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: leapspark-hub
+  template:
+    metadata:
+      labels:
+        app: leapspark-hub
+    spec:
+      containers:
+        - name: leapspark-hub
+          image: leapspark-hub
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: "K8s"
+            - name: ASPNETCORE_URLS
+              value: "http://+:80"
+          ports:
+             - containerPort: 80
+          imagePullPolicy: Never
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: leapspark-web
+  labels:
+    app: leapspark-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: leapspark-web
+  template:
+    metadata:
+      labels:
+        app: leapspark-web
+    spec:
+      containers:
+        - name: leapspark-web
+          image: leapspark-web
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: "K8s"
+            - name: ASPNETCORE_URLS
+              value: "http://+:80"
+          ports:
+             - containerPort: 80
+          imagePullPolicy: Never
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: leapspark-logstash
+  labels:
+    app: leapspark-logstash
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: leapspark-logstash
+  template:
+    metadata:
+      labels:
+        app: leapspark-logstash
+    spec:
+      containers:
+        - name: leapspark-logstash
+          image: docker.elastic.co/logstash/logstash-oss:sha256-fbe7203073fc2d876807df697aa17999ff984623ea3fd5bf7adcfd2ba65f42cb
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: "K8s"
+            - name: ASPNETCORE_URLS
+              value: "http://+:80"
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - mountPath: "/usr/share/logstash/pipeline/"
+              name: "pipelines-volume"
+              readOnly: true
+          imagePullPolicy: IfNotPresent
+      volumes:
+        - name: "pipelines-volume"
+          hostPath:
+            path: "{{path}}/logstash/pipelines"
+            type: Directory

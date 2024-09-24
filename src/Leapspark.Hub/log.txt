@@ -1,0 +1,10 @@
+2024-09-24 11:58:54.232 +05:45 [INF] Now listening on: https://localhost:7183
+2024-09-24 11:58:54.249 +05:45 [INF] Now listening on: http://localhost:5062
+2024-09-24 11:58:54.262 +05:45 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-09-24 11:58:54.356 +05:45 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-24 11:58:54.357 +05:45 [INF] Hosting environment: Development
+2024-09-24 11:58:54.357 +05:45 [INF] Content root path: C:\Users\sujit.tamang\gitlab\leapspark\src\Leapspark.Hub
+2024-09-24 11:58:55.335 +05:45 [INF] Request starting HTTP/2 GET https://localhost:7183/ - null null
+2024-09-24 11:58:55.545 +05:45 [INF] Executing endpoint 'HTTP: GET /'
+2024-09-24 11:58:55.551 +05:45 [INF] Executed endpoint 'HTTP: GET /'
+2024-09-24 11:58:55.554 +05:45 [INF] Request finished HTTP/2 GET https://localhost:7183/ - 200 null text/plain; charset=utf-8 222.0717ms

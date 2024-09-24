@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leapspark", "Leapspark\Leapspark.csproj", "{485FA6D9-764D-4239-8DA2-C3E574AE5F55}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leapspark.Hub", "Leapspark.Hub\Leapspark.Hub.csproj", "{D71E18D2-AF71-49E3-8547-92D80B3D09DB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leapspark.Api", "Leapspark.Api\Leapspark.Api.csproj", "{F8B613BD-068F-40A3-9F4A-43E831A8A5AE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leapspark.Web", "Leapspark.Web\Leapspark.Web.csproj", "{109FCE8D-23F2-401A-8CCB-F39F367A2752}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leapspark.Gateway", "Leapspark.Gateway\Leapspark.Gateway.csproj", "{54371B41-E4D5-4E19-BC3F-2CC6A027432D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leapspark.Auth", "Leapspark.Auth\Leapspark.Auth.csproj", "{DFF6AD32-2BB3-4323-811B-4359E16B525D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leapspark.Bootstrap", "Leapspark.Bootstrap\Leapspark.Bootstrap.csproj", "{075939D4-F671-4DCE-B588-3EB529738440}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{485FA6D9-764D-4239-8DA2-C3E574AE5F55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{485FA6D9-764D-4239-8DA2-C3E574AE5F55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{485FA6D9-764D-4239-8DA2-C3E574AE5F55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{485FA6D9-764D-4239-8DA2-C3E574AE5F55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D71E18D2-AF71-49E3-8547-92D80B3D09DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D71E18D2-AF71-49E3-8547-92D80B3D09DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D71E18D2-AF71-49E3-8547-92D80B3D09DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D71E18D2-AF71-49E3-8547-92D80B3D09DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8B613BD-068F-40A3-9F4A-43E831A8A5AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8B613BD-068F-40A3-9F4A-43E831A8A5AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8B613BD-068F-40A3-9F4A-43E831A8A5AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8B613BD-068F-40A3-9F4A-43E831A8A5AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{109FCE8D-23F2-401A-8CCB-F39F367A2752}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{109FCE8D-23F2-401A-8CCB-F39F367A2752}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{109FCE8D-23F2-401A-8CCB-F39F367A2752}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{109FCE8D-23F2-401A-8CCB-F39F367A2752}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54371B41-E4D5-4E19-BC3F-2CC6A027432D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54371B41-E4D5-4E19-BC3F-2CC6A027432D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54371B41-E4D5-4E19-BC3F-2CC6A027432D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54371B41-E4D5-4E19-BC3F-2CC6A027432D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFF6AD32-2BB3-4323-811B-4359E16B525D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFF6AD32-2BB3-4323-811B-4359E16B525D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFF6AD32-2BB3-4323-811B-4359E16B525D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFF6AD32-2BB3-4323-811B-4359E16B525D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{075939D4-F671-4DCE-B588-3EB529738440}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{075939D4-F671-4DCE-B588-3EB529738440}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{075939D4-F671-4DCE-B588-3EB529738440}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{075939D4-F671-4DCE-B588-3EB529738440}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FF908250-79AF-406D-BC32-B2AE30CAFD97}
+	EndGlobalSection
+EndGlobal
